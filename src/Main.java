@@ -54,7 +54,7 @@ public class Main {
 
                 while (input_scanner.hasNextLine()) {
                     String data  = input_scanner.nextLine();
-                    corpus = corpus.concat(data);
+                    corpus = corpus.concat(" " + data);
                 }
 
                 corpus = corpus.toLowerCase();
@@ -75,12 +75,13 @@ public class Main {
             Set<String> wordSet = new HashSet<>(wordList);
 
             for (String word : wordSet) {
-                long occurrences = Pattern.compile(word)
+                long occurrences = Pattern.compile("\\b" + Pattern.quote(word) + "\\b")
                         .matcher(corpus)
                         .results()
                         .count();
                 countMap.put(word, occurrences);
             }
+            System.out.println(countMap);
         }
 
         /**
