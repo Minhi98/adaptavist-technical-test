@@ -81,7 +81,6 @@ public class Main {
                         .count();
                 countMap.put(word, occurrences);
             }
-            System.out.println(countMap);
         }
 
         /**
